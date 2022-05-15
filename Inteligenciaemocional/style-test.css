@@ -148,6 +148,7 @@ body
 }
 #question{
     margin-bottom: 1rem;
+    color: white;
 }
 .option{
     margin-bottom: 0.5rem;
@@ -158,7 +159,7 @@ body
     border-radius: 1rem;
 }
 .option:hover{
-    color: white;
+    color: rgb(10, 190, 217);
 }
 ol{
     position: relative;

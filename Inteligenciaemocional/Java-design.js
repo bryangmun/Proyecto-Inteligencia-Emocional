@@ -321,6 +321,11 @@ function backToQuiz(){
     location.reload();
 }
 
+
+//x, y axis 
+var xValues = ["PEE", "UEFP", "RE", "GEP", "GEOP"];
+var yValues = [1, 1, 1, 1, 1];
+
 //function to check Answers
 function checkAnswer(){
     answerBank.style.display= 'block';
@@ -329,6 +334,13 @@ function checkAnswer(){
     scoreC=scoreC*10/4;
     scoreD=scoreD*10/7;
     scoreE=scoreE*10/7;
+    
+    yValues[0] = scoreA.toFixed()
+    yValues[1] = scoreB.toFixed()
+    yValues[2] = scoreC.toFixed()
+    yValues[3] = scoreD.toFixed()
+    yValues[4] = scoreE.toFixed()
+
     document.getElementById('scoreA').innerHTML = scoreA.toFixed();
     document.getElementById('scoreB').innerHTML = scoreB.toFixed();
     document.getElementById('scoreC').innerHTML = scoreC.toFixed();
@@ -338,3 +350,24 @@ function checkAnswer(){
 
 
 displayQuestion();
+
+//chart js
+var barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Resultados Cuestionario Inteligencia Emocional"
+    }
+  }
+});
